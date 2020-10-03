@@ -21,3 +21,10 @@ foreach(String File_path in Directory.GetFiles(path, "*.*", SearchOption.AllDire
     }
 
 }
+
+//*** Create a file and write in it ***//
+// @see https://docs.microsoft.com/fr-fr/dotnet/api/system.io.filestream?view=netcore-3.1
+using (FileStream fs = File.Create(path)) {
+    byte[] info = new UTF8Encoding(true).GetBytes("Text line content");
+    fs.Write(info, 0, info.Length);
+}
