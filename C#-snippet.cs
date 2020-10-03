@@ -48,3 +48,13 @@ public class Manifest {
 Manifest manifest = new Manifest();
 manifest = JsonSerializer.Deserialize<Manifest>(File.ReadAllText("manifest.json"));
 Console.WriteLine("Version : "+ manifest.replacedVersion +", file to skip : "+ manifest.skipFiles[0]);
+
+//*** Merge 2 Array ***//
+// more useful and easiest than Array.Copy()
+Array.Resize(ref Elements_to_skip, manifest.skipFiles.Length + Elements_to_skip.Length);
+int counter = Elements_to_skip.Length - 1;
+foreach(String el in manifest.skipFiles) {
+
+    Elements_to_skip[counter] = el;
+
+}
