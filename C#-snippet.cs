@@ -37,7 +37,7 @@ public class Manifest {
     public String replacedVersion { get; set; }
     public String[] skipFiles { get; set; }
 }
-// the Json sring
+// the Json string contained in a file called "manifest.json" 
 {
     "replacedVersion": "1.0",
     "skipFiles": [
@@ -46,5 +46,5 @@ public class Manifest {
 }
 // populate the object with the Json string data and test it
 Manifest manifest = new Manifest();
-manifest = JsonSerializer.Deserialize<Manifest>(File.ReadAllText(source_path + @"\deploy\manifest_"+ version +".json"));
+manifest = JsonSerializer.Deserialize<Manifest>(File.ReadAllText("manifest.json"));
 Console.WriteLine("Version : "+ manifest.replacedVersion +", file to skip : "+ manifest.skipFiles[0]);
