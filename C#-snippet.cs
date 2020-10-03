@@ -28,3 +28,23 @@ using (FileStream fs = File.Create(path)) {
     byte[] info = new UTF8Encoding(true).GetBytes("Text line content");
     fs.Write(info, 0, info.Length);
 }
+
+//*** Parse a JSON String ***//
+// You need to create a class which contain the same properties and data type of your JSON object
+// the following exemple populate an object called "manifest" wich is a instance of a class called "Manifest", with a JSON string
+// the class
+public class Manifest {
+    public String replacedVersion { get; set; }
+    public String[] skipFiles { get; set; }
+}
+// the Json sring
+{
+    "replacedVersion": "1.0",
+    "skipFiles": [
+        "\\medias\\pictures\\soda.jpg"
+    ]
+}
+// populate the object with the Json string data and test it
+Manifest manifest = new Manifest();
+manifest = JsonSerializer.Deserialize<Manifest>(File.ReadAllText(source_path + @"\deploy\manifest_"+ version +".json"));
+Console.WriteLine("Version : "+ manifest.replacedVersion +", file to skip : "+ manifest.skipFiles[0]);
