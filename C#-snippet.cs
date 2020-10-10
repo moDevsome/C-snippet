@@ -29,6 +29,14 @@ using (FileStream fs = File.Create(path)) {
     fs.Write(info, 0, info.Length);
 }
 
+//*** Read a file line by line ***//
+using(StreamReader sr = File.OpenText(path)) {
+    String line;
+    while ((line = sr.ReadLine()) != null) {
+        // do something with the "line" var
+    }
+}
+
 //*** Parse a JSON String ***//
 // You need to create a class which contain the same properties and data type of your JSON object
 // the following exemple populate an object called "manifest" wich is a instance of a class called "Manifest", with a JSON string
