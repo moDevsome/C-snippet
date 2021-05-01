@@ -11,3 +11,16 @@ int main() {
   
 }
 /** end snippet **/
+
+/*** Check if file exist ***/
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+string file_path = "C:/path/to/my_file.txt";
+ifstream MyReadFile(file_path);
+
+MyReadFile.is_open(); // Return TRUE if file exist
+
+/** end snippet **/
