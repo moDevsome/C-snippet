@@ -1,6 +1,5 @@
 /*** Get the current timestamp ***/
 #include <iostream>
-#include <fstream>
 #include <ctime>
 
 int main() {
