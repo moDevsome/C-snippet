@@ -1,0 +1,4 @@
+rem // Get execute result
+for /f %%i in ('cscript move_file.vbs') do set RESULT=%%i
+echo The directory is %RESULT%
+pause
